@@ -11,7 +11,7 @@ const router = Router();
 
 
 router.post("/create", validate(productValidator), allowedUsers("admin", "seller"), createProduct);
-router.get("/get", allowedUsers("admin", "seller"), getProductByStatus);
+router.get("/get", allowedUsers(), getProductByStatus);
 router.get("/search", optionalAuth, searchProdByFilter);
 router.get("/:id", allowedUsers(), getSingleProduct);
 router.get("/owner/:id", allowedUsers("admin", "seller", "influencer"), getProductsByOwner);
